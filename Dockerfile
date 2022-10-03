@@ -9,6 +9,11 @@ RUN apt-get -y install python3-dev \
                        libc-dev \
                        libffi-dev \
                        libevent-dev
+
+RUN cp /etc/apt/sources.list /etc/apt/sources.list~
+RUN sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list
+RUN apt-get update
+
 RUN apt-get build-dep python-numpy
 
 COPY requirements.txt ./
