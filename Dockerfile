@@ -7,6 +7,7 @@ RUN apt-get update && apt-get -y install python3-dev \
                           			  	 libc-dev \
                           			  	 libffi-dev \
                           			  	 libevent-dev
+RUN apt-get build-dep python-numpy
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
